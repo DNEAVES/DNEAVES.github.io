@@ -1,0 +1,61 @@
+body {
+	background-image: url("Images/WebBG.png");
+	background-position: center;
+	background-size: auto;
+	color: #FF7700;
+	font-size: 32px;
+	font-family: Consolas, "Andale Mono", "Lucida Console", "Lucida Sans Typewriter", Monaco, "Courier New", "monospace";
+    text-align: center;
+    vertical-align: middle;
+	height: 100%;
+	width: auto;
+    margin: auto;
+}
+
+a {
+    text-decoration: none;
+    color: #FF7700;
+    display: block;
+}
+
+.wrap {
+	border-radius: 5px;
+}
+
+#titleimage {
+	background-image: url("Images/DN logo Trans.png");
+	background-size: contain;
+	background-repeat: no-repeat;
+	background-position: center;
+	text-align: center;
+	width: auto;
+	height: 240px;
+}
+
+#socialbar {
+    text-align: left;
+    margin-left: 10%;
+	width: auto;
+	height: auto;
+}
+
+.socialicon {
+	min-height: 48px;
+	max-height: 48px;
+	height: auto;
+}
+
+.socialbox {
+	background-color: #121212;
+    background-position: center;
+    height: 48px;
+	width: 48px;
+	overflow: hidden;
+	padding: 10px;
+    margin: 10px;
+    transition: width 1s;
+}
+
+.socialbox:hover {
+	width: 550px;
+}
