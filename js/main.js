@@ -8313,6 +8313,31 @@ var $author$project$Main$view_ = function (_v0) {
 											$rtfeldman$elm_css$Html$Styled$a,
 											_List_fromArray(
 												[
+													$rtfeldman$elm_css$Html$Styled$Attributes$href('https://hivesocial.app')
+												]),
+											_List_fromArray(
+												[
+													A2(
+													$rtfeldman$elm_css$Html$Styled$img,
+													_List_fromArray(
+														[
+															$author$project$Main$socialIcon,
+															$rtfeldman$elm_css$Html$Styled$Attributes$src('Images/HiveSolo.png')
+														]),
+													_List_Nil),
+													$rtfeldman$elm_css$Html$Styled$text('    Hive')
+												]))
+										])),
+									A2(
+									$rtfeldman$elm_css$Html$Styled$div,
+									_List_fromArray(
+										[$author$project$Main$socialBox]),
+									_List_fromArray(
+										[
+											A2(
+											$rtfeldman$elm_css$Html$Styled$a,
+											_List_fromArray(
+												[
 													$rtfeldman$elm_css$Html$Styled$Attributes$href('https://fosstodon.org/@dneaves')
 												]),
 											_List_fromArray(
@@ -8338,7 +8363,7 @@ var $author$project$Main$view_ = function (_v0) {
 											$rtfeldman$elm_css$Html$Styled$a,
 											_List_fromArray(
 												[
-													$rtfeldman$elm_css$Html$Styled$Attributes$href('https://www.instagram.com/DNEAVES/')
+													$rtfeldman$elm_css$Html$Styled$Attributes$href('https://instagram.com/DNEAVES/')
 												]),
 											_List_fromArray(
 												[
@@ -8363,7 +8388,7 @@ var $author$project$Main$view_ = function (_v0) {
 											$rtfeldman$elm_css$Html$Styled$a,
 											_List_fromArray(
 												[
-													$rtfeldman$elm_css$Html$Styled$Attributes$href('https://www.twitch.tv/DNEAVES/')
+													$rtfeldman$elm_css$Html$Styled$Attributes$href('https://twitch.tv/DNEAVES/')
 												]),
 											_List_fromArray(
 												[
@@ -8388,7 +8413,7 @@ var $author$project$Main$view_ = function (_v0) {
 											$rtfeldman$elm_css$Html$Styled$a,
 											_List_fromArray(
 												[
-													$rtfeldman$elm_css$Html$Styled$Attributes$href('https://gaming.youtube.com/channel/UCMGZhwKg7rSTD7a3KzgpKbA')
+													$rtfeldman$elm_css$Html$Styled$Attributes$href('https://youtube.com/channel/UCMGZhwKg7rSTD7a3KzgpKbA')
 												]),
 											_List_fromArray(
 												[
@@ -8413,7 +8438,7 @@ var $author$project$Main$view_ = function (_v0) {
 											$rtfeldman$elm_css$Html$Styled$a,
 											_List_fromArray(
 												[
-													$rtfeldman$elm_css$Html$Styled$Attributes$href('https://www.youtube.com/channel/UCBeyy4NhJrPEVIu8FXLhWvA')
+													$rtfeldman$elm_css$Html$Styled$Attributes$href('https://youtube.com/channel/UCBeyy4NhJrPEVIu8FXLhWvA')
 												]),
 											_List_fromArray(
 												[
@@ -8438,7 +8463,7 @@ var $author$project$Main$view_ = function (_v0) {
 											$rtfeldman$elm_css$Html$Styled$a,
 											_List_fromArray(
 												[
-													$rtfeldman$elm_css$Html$Styled$Attributes$href('https://www.soundcloud.com/DNEAVES')
+													$rtfeldman$elm_css$Html$Styled$Attributes$href('https://soundcloud.com/DNEAVES')
 												]),
 											_List_fromArray(
 												[
