@@ -8313,31 +8313,6 @@ var $author$project$Main$view_ = function (_v0) {
 											$rtfeldman$elm_css$Html$Styled$a,
 											_List_fromArray(
 												[
-													$rtfeldman$elm_css$Html$Styled$Attributes$href('https://hivesocial.app')
-												]),
-											_List_fromArray(
-												[
-													A2(
-													$rtfeldman$elm_css$Html$Styled$img,
-													_List_fromArray(
-														[
-															$author$project$Main$socialIcon,
-															$rtfeldman$elm_css$Html$Styled$Attributes$src('Images/HiveSolo.png')
-														]),
-													_List_Nil),
-													$rtfeldman$elm_css$Html$Styled$text('    Hive')
-												]))
-										])),
-									A2(
-									$rtfeldman$elm_css$Html$Styled$div,
-									_List_fromArray(
-										[$author$project$Main$socialBox]),
-									_List_fromArray(
-										[
-											A2(
-											$rtfeldman$elm_css$Html$Styled$a,
-											_List_fromArray(
-												[
 													$rtfeldman$elm_css$Html$Styled$Attributes$href('https://fosstodon.org/@dneaves')
 												]),
 											_List_fromArray(

@@ -104,14 +104,14 @@ view_ _ =
                                               , text "    Twitter"
                                               ]
                                           ]
-                      , div [ socialBox ] [ a [ href "https://hivesocial.app"
-                                              ]
-                                              [ img [ socialIcon
-                                                    , src "Images/HiveSolo.png"
-                                                    ] []
-                                              , text "    Hive"
-                                              ]
-                                          ]
+                      --, div [ socialBox ] [ a [ href "https://hivesocial.app"
+                      --                        ]
+                      --                        [ img [ socialIcon
+                      --                              , src "Images/HiveSolo.png"
+                      --                              ] []
+                      --                        , text "    Hive"
+                      --                        ]
+                      --                    ]
                       , div [ socialBox ] [ a [ href "https://fosstodon.org/@dneaves"
                                               ]
                                               [ img [ socialIcon
