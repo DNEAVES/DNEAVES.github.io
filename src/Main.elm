@@ -128,6 +128,22 @@ view_ _ =
                                               , text "    Instagram"
                                               ]
                                           ]
+                      , div [ socialBox ] [ a [ href "https://youtube.com/@dneavesgaming"
+                                              ]
+                                              [ img [ socialIcon
+                                                    , src "Images/YTGSolo.png"
+                                                    ] []
+                                              , text "    Youtube (Gaming)"
+                                              ]
+                                          ]
+                      , div [ socialBox ] [ a [ href "https://kick.com/DNEAVES/"
+                                              ]
+                                              [ img [ socialIcon
+                                                    , src "Images/Kick.png"
+                                                    ] []
+                                              , text "    Kick"
+                                              ]
+                                          ]
                       , div [ socialBox ] [ a [ href "https://twitch.tv/DNEAVES/"
                                               ]
                                               [ img [ socialIcon
@@ -136,15 +152,7 @@ view_ _ =
                                               , text "    Twitch"
                                               ]
                                           ]
-                      , div [ socialBox ] [ a [ href "https://youtube.com/channel/UCMGZhwKg7rSTD7a3KzgpKbA"
-                                              ]
-                                              [ img [ socialIcon
-                                                    , src "Images/YTGSolo.png"
-                                                    ] []
-                                              , text "    Youtube (Gaming)"
-                                              ]
-                                          ]
-                      , div [ socialBox ] [ a [ href "https://youtube.com/channel/UCBeyy4NhJrPEVIu8FXLhWvA"
+                      , div [ socialBox ] [ a [ href "https://youtube.com/@dneavesmusic"
                                               ]
                                               [ img [ socialIcon
                                                     , src "Images/YTMSolo.png"
@@ -152,14 +160,14 @@ view_ _ =
                                               , text "    Youtube (Music)"
                                               ]
                                           ]
-                      , div [ socialBox ] [ a [ href "https://soundcloud.com/DNEAVES"
-                                              ]
-                                              [ img [ socialIcon
-                                                    , src "Images/SoundcloudSolo.png"
-                                                    ] []
-                                              , text "    Soundcloud"
-                                              ]
-                                          ]
+                      --, div [ socialBox ] [ a [ href "https://soundcloud.com/DNEAVES"
+                      --                        ]
+                      --                        [ img [ socialIcon
+                      --                              , src "Images/SoundcloudSolo.png"
+                      --                              ] []
+                      --                        , text "    Soundcloud"
+                      --                        ]
+                      --                    ]
                       ]
                 ]
           , div [ css [ float right
