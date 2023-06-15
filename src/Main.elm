@@ -160,14 +160,14 @@ view_ _ =
                                               , text "    Youtube (Music)"
                                               ]
                                           ]
-                      --, div [ socialBox ] [ a [ href "https://soundcloud.com/DNEAVES"
-                      --                        ]
-                      --                        [ img [ socialIcon
-                      --                              , src "Images/SoundcloudSolo.png"
-                      --                              ] []
-                      --                        , text "    Soundcloud"
-                      --                        ]
-                      --                    ]
+                      , div [ socialBox ] [ a [ href "https://soundcloud.com/DNEAVES"
+                                              ]
+                                              [ img [ socialIcon
+                                                    , src "Images/SoundcloudSolo.png"
+                                                    ] []
+                                              , text "    Soundcloud"
+                                              ]
+                                          ]
                       ]
                 ]
           , div [ css [ float right
