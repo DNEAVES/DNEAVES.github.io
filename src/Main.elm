@@ -95,7 +95,16 @@ view_ _ =
                             , padding (px 5)
                             ]
                       ]
-                      [ div [ socialBox ] [ a [ href "https://twitter.com/DNEAVES/"
+                      [ div [ socialBox ] [ a [ href "https://dneaves-blog.lamdera.app/"
+                                              ]
+                                              [ img [ socialIcon
+                                                    , src "Images/Lamdera.png"
+
+                                                    ] []
+                                              , text "    Blog"
+                                              ]
+                                          ]
+                      , div [ socialBox ] [ a [ href "https://twitter.com/DNEAVES/"
                                               ]
                                               [ img [ socialIcon
                                                     , src "Images/TwitSolo.png"
@@ -160,14 +169,14 @@ view_ _ =
                                               , text "    Youtube (Music)"
                                               ]
                                           ]
-                      , div [ socialBox ] [ a [ href "https://soundcloud.com/DNEAVES"
-                                              ]
-                                              [ img [ socialIcon
-                                                    , src "Images/SoundcloudSolo.png"
-                                                    ] []
-                                              , text "    Soundcloud"
-                                              ]
-                                          ]
+                      --, div [ socialBox ] [ a [ href "https://soundcloud.com/DNEAVES"
+                      --                        ]
+                      --                        [ img [ socialIcon
+                      --                              , src "Images/SoundcloudSolo.png"
+                      --                              ] []
+                      --                        , text "    Soundcloud"
+                      --                        ]
+                      --                    ]
                       ]
                 ]
           , div [ css [ float right

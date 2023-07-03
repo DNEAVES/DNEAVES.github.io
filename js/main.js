@@ -8288,6 +8288,31 @@ var $author$project$Main$view_ = function (_v0) {
 											$rtfeldman$elm_css$Html$Styled$a,
 											_List_fromArray(
 												[
+													$rtfeldman$elm_css$Html$Styled$Attributes$href('https://dneaves-blog.lamdera.app/')
+												]),
+											_List_fromArray(
+												[
+													A2(
+													$rtfeldman$elm_css$Html$Styled$img,
+													_List_fromArray(
+														[
+															$author$project$Main$socialIcon,
+															$rtfeldman$elm_css$Html$Styled$Attributes$src('Images/Lamdera.png')
+														]),
+													_List_Nil),
+													$rtfeldman$elm_css$Html$Styled$text('    Blog')
+												]))
+										])),
+									A2(
+									$rtfeldman$elm_css$Html$Styled$div,
+									_List_fromArray(
+										[$author$project$Main$socialBox]),
+									_List_fromArray(
+										[
+											A2(
+											$rtfeldman$elm_css$Html$Styled$a,
+											_List_fromArray(
+												[
 													$rtfeldman$elm_css$Html$Styled$Attributes$href('https://twitter.com/DNEAVES/')
 												]),
 											_List_fromArray(
@@ -8451,31 +8476,6 @@ var $author$project$Main$view_ = function (_v0) {
 														]),
 													_List_Nil),
 													$rtfeldman$elm_css$Html$Styled$text('    Youtube (Music)')
-												]))
-										])),
-									A2(
-									$rtfeldman$elm_css$Html$Styled$div,
-									_List_fromArray(
-										[$author$project$Main$socialBox]),
-									_List_fromArray(
-										[
-											A2(
-											$rtfeldman$elm_css$Html$Styled$a,
-											_List_fromArray(
-												[
-													$rtfeldman$elm_css$Html$Styled$Attributes$href('https://soundcloud.com/DNEAVES')
-												]),
-											_List_fromArray(
-												[
-													A2(
-													$rtfeldman$elm_css$Html$Styled$img,
-													_List_fromArray(
-														[
-															$author$project$Main$socialIcon,
-															$rtfeldman$elm_css$Html$Styled$Attributes$src('Images/SoundcloudSolo.png')
-														]),
-													_List_Nil),
-													$rtfeldman$elm_css$Html$Styled$text('    Soundcloud')
 												]))
 										]))
 								]))
