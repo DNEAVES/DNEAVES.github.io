@@ -2,7 +2,7 @@ body {
     background-image: url("Images/WebBG.png");
 	background-color: #010101;
 	background-position: center;
-	background-size: auto;
+	background-size: cover;
 	font-size: 32px;
 	font-family: Consolas, "Andale Mono", "Lucida Console", "Lucida Sans Typewriter", Monaco, "Courier New", "monospace";
 }
