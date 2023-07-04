@@ -5196,21 +5196,38 @@ var $elm$core$Task$perform = F2(
 				A2($elm$core$Task$map, toMessage, task)));
 	});
 var $elm$browser$Browser$document = _Browser_document;
-var $elm$core$Platform$Cmd$batch = _Platform_batch;
-var $elm$core$Platform$Cmd$none = $elm$core$Platform$Cmd$batch(_List_Nil);
+var $author$project$Main$Desktop = {$: 'Desktop'};
+var $author$project$Main$GotViewport = function (a) {
+	return {$: 'GotViewport', a: a};
+};
+var $elm$browser$Browser$Dom$getViewport = _Browser_withWindow(_Browser_getViewport);
 var $author$project$Main$init = function (_v0) {
 	return _Utils_Tuple2(
-		{},
-		$elm$core$Platform$Cmd$none);
+		{viewType: $author$project$Main$Desktop},
+		A2(
+			$elm$core$Task$perform,
+			function (vp) {
+				return $author$project$Main$GotViewport(vp);
+			},
+			$elm$browser$Browser$Dom$getViewport));
 };
 var $elm$core$Platform$Sub$batch = _Platform_batch;
 var $elm$core$Platform$Sub$none = $elm$core$Platform$Sub$batch(_List_Nil);
 var $author$project$Main$subscriptions = function (_v0) {
 	return $elm$core$Platform$Sub$none;
 };
+var $author$project$Main$Mobile = {$: 'Mobile'};
+var $elm$core$Platform$Cmd$batch = _Platform_batch;
+var $elm$core$Platform$Cmd$none = $elm$core$Platform$Cmd$batch(_List_Nil);
 var $author$project$Main$update = F2(
 	function (msg, model) {
-		return _Utils_Tuple2(model, $elm$core$Platform$Cmd$none);
+		var viewport = msg.a;
+		var screenType = (_Utils_cmp(viewport.scene.width, viewport.scene.height) > 0) ? $author$project$Main$Desktop : $author$project$Main$Mobile;
+		return _Utils_Tuple2(
+			_Utils_update(
+				model,
+				{viewType: screenType}),
+			$elm$core$Platform$Cmd$none);
 	});
 var $elm$json$Json$Decode$value = _Json_decodeValue;
 var $rtfeldman$elm_css$VirtualDom$Styled$UnscopedStyles = function (a) {
@@ -8137,34 +8154,51 @@ var $rtfeldman$elm_css$Css$Transitions$durationTransition = F2(
 			{animation: animation, delay: $elm$core$Maybe$Nothing, duration: duration, timing: $elm$core$Maybe$Nothing});
 	});
 var $rtfeldman$elm_css$Css$Transitions$width = $rtfeldman$elm_css$Css$Transitions$durationTransition($rtfeldman$elm_css$Css$Transitions$Width);
-var $author$project$Main$socialBox = $rtfeldman$elm_css$Html$Styled$Attributes$css(
-	_List_fromArray(
-		[
-			$rtfeldman$elm_css$Css$backgroundColor(
-			A3($rtfeldman$elm_css$Css$rgb, 18, 18, 18)),
-			$rtfeldman$elm_css$Css$backgroundPosition($rtfeldman$elm_css$Css$center),
-			$rtfeldman$elm_css$Css$height(
-			$rtfeldman$elm_css$Css$px(48)),
-			$rtfeldman$elm_css$Css$width(
-			$rtfeldman$elm_css$Css$px(48)),
-			$rtfeldman$elm_css$Css$overflow($rtfeldman$elm_css$Css$hidden),
-			$rtfeldman$elm_css$Css$whiteSpace($rtfeldman$elm_css$Css$noWrap),
-			$rtfeldman$elm_css$Css$padding(
-			$rtfeldman$elm_css$Css$px(10)),
-			$rtfeldman$elm_css$Css$margin(
-			$rtfeldman$elm_css$Css$px(10)),
-			$rtfeldman$elm_css$Css$Transitions$transition(
+var $author$project$Main$socialBox = function (model) {
+	return $rtfeldman$elm_css$Html$Styled$Attributes$css(
+		_Utils_ap(
 			_List_fromArray(
 				[
-					$rtfeldman$elm_css$Css$Transitions$width(1000)
-				])),
-			$rtfeldman$elm_css$Css$hover(
-			_List_fromArray(
-				[
-					$rtfeldman$elm_css$Css$width(
-					$rtfeldman$elm_css$Css$px(380))
-				]))
-		]));
+					$rtfeldman$elm_css$Css$backgroundColor(
+					A3($rtfeldman$elm_css$Css$rgb, 18, 18, 18)),
+					$rtfeldman$elm_css$Css$backgroundPosition($rtfeldman$elm_css$Css$center),
+					$rtfeldman$elm_css$Css$height(
+					$rtfeldman$elm_css$Css$px(48)),
+					$rtfeldman$elm_css$Css$overflow($rtfeldman$elm_css$Css$hidden),
+					$rtfeldman$elm_css$Css$whiteSpace($rtfeldman$elm_css$Css$noWrap),
+					$rtfeldman$elm_css$Css$padding(
+					$rtfeldman$elm_css$Css$px(10)),
+					$rtfeldman$elm_css$Css$margin(
+					$rtfeldman$elm_css$Css$px(10))
+				]),
+			function () {
+				var _v0 = model.viewType;
+				if (_v0.$ === 'Desktop') {
+					return _List_fromArray(
+						[
+							$rtfeldman$elm_css$Css$width(
+							$rtfeldman$elm_css$Css$px(48)),
+							$rtfeldman$elm_css$Css$Transitions$transition(
+							_List_fromArray(
+								[
+									$rtfeldman$elm_css$Css$Transitions$width(1000)
+								])),
+							$rtfeldman$elm_css$Css$hover(
+							_List_fromArray(
+								[
+									$rtfeldman$elm_css$Css$width(
+									$rtfeldman$elm_css$Css$px(380))
+								]))
+						]);
+				} else {
+					return _List_fromArray(
+						[
+							$rtfeldman$elm_css$Css$width(
+							$rtfeldman$elm_css$Css$px(380))
+						]);
+				}
+			}()));
+};
 var $rtfeldman$elm_css$Css$maxHeight = $rtfeldman$elm_css$Css$prop1('max-height');
 var $rtfeldman$elm_css$Css$minHeight = $rtfeldman$elm_css$Css$prop1('min-height');
 var $author$project$Main$socialIcon = $rtfeldman$elm_css$Html$Styled$Attributes$css(
@@ -8202,7 +8236,7 @@ var $rtfeldman$elm_css$Css$verticalAlign = function (fn) {
 		'vertical-align',
 		fn($rtfeldman$elm_css$Css$Internal$lengthForOverloadedProperty));
 };
-var $author$project$Main$view_ = function (_v0) {
+var $author$project$Main$view_ = function (model) {
 	return _List_fromArray(
 		[
 			A2(
@@ -8281,7 +8315,9 @@ var $author$project$Main$view_ = function (_v0) {
 									A2(
 									$rtfeldman$elm_css$Html$Styled$div,
 									_List_fromArray(
-										[$author$project$Main$socialBox]),
+										[
+											$author$project$Main$socialBox(model)
+										]),
 									_List_fromArray(
 										[
 											A2(
@@ -8306,7 +8342,9 @@ var $author$project$Main$view_ = function (_v0) {
 									A2(
 									$rtfeldman$elm_css$Html$Styled$div,
 									_List_fromArray(
-										[$author$project$Main$socialBox]),
+										[
+											$author$project$Main$socialBox(model)
+										]),
 									_List_fromArray(
 										[
 											A2(
@@ -8331,7 +8369,9 @@ var $author$project$Main$view_ = function (_v0) {
 									A2(
 									$rtfeldman$elm_css$Html$Styled$div,
 									_List_fromArray(
-										[$author$project$Main$socialBox]),
+										[
+											$author$project$Main$socialBox(model)
+										]),
 									_List_fromArray(
 										[
 											A2(
@@ -8356,7 +8396,9 @@ var $author$project$Main$view_ = function (_v0) {
 									A2(
 									$rtfeldman$elm_css$Html$Styled$div,
 									_List_fromArray(
-										[$author$project$Main$socialBox]),
+										[
+											$author$project$Main$socialBox(model)
+										]),
 									_List_fromArray(
 										[
 											A2(
@@ -8381,7 +8423,9 @@ var $author$project$Main$view_ = function (_v0) {
 									A2(
 									$rtfeldman$elm_css$Html$Styled$div,
 									_List_fromArray(
-										[$author$project$Main$socialBox]),
+										[
+											$author$project$Main$socialBox(model)
+										]),
 									_List_fromArray(
 										[
 											A2(
@@ -8406,7 +8450,9 @@ var $author$project$Main$view_ = function (_v0) {
 									A2(
 									$rtfeldman$elm_css$Html$Styled$div,
 									_List_fromArray(
-										[$author$project$Main$socialBox]),
+										[
+											$author$project$Main$socialBox(model)
+										]),
 									_List_fromArray(
 										[
 											A2(
@@ -8431,7 +8477,9 @@ var $author$project$Main$view_ = function (_v0) {
 									A2(
 									$rtfeldman$elm_css$Html$Styled$div,
 									_List_fromArray(
-										[$author$project$Main$socialBox]),
+										[
+											$author$project$Main$socialBox(model)
+										]),
 									_List_fromArray(
 										[
 											A2(
@@ -8456,7 +8504,9 @@ var $author$project$Main$view_ = function (_v0) {
 									A2(
 									$rtfeldman$elm_css$Html$Styled$div,
 									_List_fromArray(
-										[$author$project$Main$socialBox]),
+										[
+											$author$project$Main$socialBox(model)
+										]),
 									_List_fromArray(
 										[
 											A2(
