@@ -1,19 +1,26 @@
 module Main exposing (..)
 
 import Browser
+import Browser.Dom exposing (Viewport)
 import Css exposing (..)
 import Css.Transitions exposing (easeIn, easeInOut, transition)
 import Html.Styled exposing (..)
 import Html.Styled.Attributes exposing (css, href, src, style)
 import Json.Encode as Encode exposing (Value)
+import Task
 
 
 
 -- model
 
 
+type ViewType
+    = Desktop
+    | Mobile
+
+
 type alias Model =
-    {
+    { viewType : ViewType
     }
 
 
@@ -31,8 +38,8 @@ type alias Flags =
 
 init : Encode.Value -> ( Model, Cmd Msg )
 init _ =
-    ( {}
-    , Cmd.none
+    ( { viewType = Desktop }
+    , Task.perform (\vp -> GotViewport vp) Browser.Dom.getViewport
     )
 
 -- classes
@@ -44,27 +51,36 @@ socialIcon =
         , height auto
         ]
 
-socialBox : Attribute Msg
-socialBox =
-    css [ backgroundColor (rgb 18 18 18)
-        , backgroundPosition center
-        , height (px 48)
-        , width (px 48)
-        , overflow hidden
-        , whiteSpace noWrap
-        , padding (px 10)
-        , margin (px 10)
-        , transition [ Css.Transitions.width 1000
-                     ]
-        , hover [ width (px 380)
-                ]
-        ]
+socialBox : Model -> Attribute Msg
+socialBox model =
+    css (
+            [ backgroundColor (rgb 18 18 18)
+            , backgroundPosition center
+            , height (px 48)
+            , overflow hidden
+            , whiteSpace noWrap
+            , padding (px 10)
+            , margin (px 10)
+            ]
+            ++
+            ( case model.viewType of
+                Desktop ->
+                    [ width (px 48)
+                    , transition [ Css.Transitions.width 1000
+                                 ]
+                    , hover [ width (px 380)
+                            ]
+                    ]
+                Mobile ->
+                    [ width (px 380) ]
+            )
+        )
 
 -- view
 
 
 view_ : Model -> List (Html Msg)
-view_ _ =
+view_ model =
     [ div [ css [ width auto
                 , height (pct 100)
                 , fontFamilies [ "Consolas", "Andale Mono", "Lucida Console", "Lucida Sans Typewriter", "Monaco", "Courier New", "monospace" ]
@@ -95,7 +111,7 @@ view_ _ =
                             , padding (px 5)
                             ]
                       ]
-                      [ div [ socialBox ] [ a [ href "https://dneaves-blog.lamdera.app/"
+                      [ div [ socialBox model ] [ a [ href "https://dneaves-blog.lamdera.app/"
                                               ]
                                               [ img [ socialIcon
                                                     , src "Images/Lamdera.png"
@@ -104,7 +120,7 @@ view_ _ =
                                               , text "    Blog"
                                               ]
                                           ]
-                      , div [ socialBox ] [ a [ href "https://twitter.com/DNEAVES/"
+                      , div [ socialBox model ] [ a [ href "https://twitter.com/DNEAVES/"
                                               ]
                                               [ img [ socialIcon
                                                     , src "Images/TwitSolo.png"
@@ -113,7 +129,7 @@ view_ _ =
                                               , text "    Twitter"
                                               ]
                                           ]
-                      --, div [ socialBox ] [ a [ href "https://hivesocial.app"
+                      --, div [ socialBox model ] [ a [ href "https://hivesocial.app"
                       --                        ]
                       --                        [ img [ socialIcon
                       --                              , src "Images/HiveSolo.png"
@@ -121,7 +137,7 @@ view_ _ =
                       --                        , text "    Hive"
                       --                        ]
                       --                    ]
-                      , div [ socialBox ] [ a [ href "https://fosstodon.org/@dneaves"
+                      , div [ socialBox model ] [ a [ href "https://fosstodon.org/@dneaves"
                                               ]
                                               [ img [ socialIcon
                                                     , src "Images/MastSolo.png"
@@ -129,7 +145,7 @@ view_ _ =
                                               , text "    Mastodon"
                                               ]
                                           ]
-                      , div [ socialBox ] [ a [ href "https://instagram.com/DNEAVES/"
+                      , div [ socialBox model ] [ a [ href "https://instagram.com/DNEAVES/"
                                               ]
                                               [ img [ socialIcon
                                                     , src "Images/InstaSolo.png"
@@ -137,7 +153,7 @@ view_ _ =
                                               , text "    Instagram"
                                               ]
                                           ]
-                      , div [ socialBox ] [ a [ href "https://youtube.com/@dneavesgaming"
+                      , div [ socialBox model ] [ a [ href "https://youtube.com/@dneavesgaming"
                                               ]
                                               [ img [ socialIcon
                                                     , src "Images/YTGSolo.png"
@@ -145,7 +161,7 @@ view_ _ =
                                               , text "    Youtube (Gaming)"
                                               ]
                                           ]
-                      , div [ socialBox ] [ a [ href "https://kick.com/DNEAVES/"
+                      , div [ socialBox model ] [ a [ href "https://kick.com/DNEAVES/"
                                               ]
                                               [ img [ socialIcon
                                                     , src "Images/Kick.png"
@@ -153,7 +169,7 @@ view_ _ =
                                               , text "    Kick"
                                               ]
                                           ]
-                      , div [ socialBox ] [ a [ href "https://twitch.tv/DNEAVES/"
+                      , div [ socialBox model ] [ a [ href "https://twitch.tv/DNEAVES/"
                                               ]
                                               [ img [ socialIcon
                                                     , src "Images/TwitchSolo.png"
@@ -161,7 +177,7 @@ view_ _ =
                                               , text "    Twitch"
                                               ]
                                           ]
-                      , div [ socialBox ] [ a [ href "https://youtube.com/@dneavesmusic"
+                      , div [ socialBox model ] [ a [ href "https://youtube.com/@dneavesmusic"
                                               ]
                                               [ img [ socialIcon
                                                     , src "Images/YTMSolo.png"
@@ -169,7 +185,7 @@ view_ _ =
                                               , text "    Youtube (Music)"
                                               ]
                                           ]
-                      --, div [ socialBox ] [ a [ href "https://soundcloud.com/DNEAVES"
+                      --, div [ socialBox model ] [ a [ href "https://soundcloud.com/DNEAVES"
                       --                        ]
                       --                        [ img [ socialIcon
                       --                              , src "Images/SoundcloudSolo.png"
@@ -225,14 +241,23 @@ main =
 
 
 type Msg
-    = None
+    = GotViewport Viewport
 
 
 update : Msg -> Model -> ( Model, Cmd Msg )
 update msg model =
     case msg of
-        None ->
-            ( model, Cmd.none )
+        GotViewport viewport ->
+            let
+                screenType =
+                    if viewport.scene.width > viewport.scene.height then
+                        Desktop
+                    else
+                        Mobile
+            in
+            ( { model | viewType = screenType }
+            , Cmd.none
+            )
 
 
 
