@@ -11159,7 +11159,6 @@ var $mdgriffith$elm_ui$Element$Font$family = function (families) {
 			A3($elm$core$List$foldl, $mdgriffith$elm_ui$Internal$Model$renderFontClassName, 'ff-', families),
 			families));
 };
-var $mdgriffith$elm_ui$Element$htmlAttribute = $mdgriffith$elm_ui$Internal$Model$Attr;
 var $elm$html$Html$Attributes$alt = $elm$html$Html$Attributes$stringProperty('alt');
 var $elm$html$Html$Attributes$src = function (url) {
 	return A2(
@@ -11439,13 +11438,7 @@ var $author$project$Main$view_ = function (model) {
 						}),
 						A2(
 						$mdgriffith$elm_ui$Element$newTabLink,
-						_Utils_ap(
-							$author$project$Main$socialBox(model),
-							_List_fromArray(
-								[
-									$mdgriffith$elm_ui$Element$htmlAttribute(
-									$elm$html$Html$Attributes$rel('me'))
-								])),
+						$author$project$Main$socialBox(model),
 						{
 							label: A2(
 								$mdgriffith$elm_ui$Element$row,
