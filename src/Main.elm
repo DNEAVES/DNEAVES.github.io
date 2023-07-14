@@ -143,7 +143,7 @@ view_ model =
                         ]
                     )
                 }
-            , newTabLink ( socialBox model ++ [ htmlAttribute (Html.Attributes.rel "me") ])
+            , newTabLink ( socialBox model )
                 { url = "https://fosstodon.org/@dneaves"
                 , label = (
                     row
@@ -158,19 +158,6 @@ view_ model =
                         ]
                     )
                 }
-            --, html (Html.a
-            --    [ Html.Attributes.href "https://fosstodon.org/@dneaves"
-            --    , Html.Attributes.rel "me"
-            --    , Html.Attributes.align "middle"
-            --    ]
-            --    [ Html.img
-            --        [ Html.Attributes.height 48
-            --        , Html.Attributes.width 48
-            --        , Html.Attributes.src "Images/MastSolo.png"
-            --        ]
-            --        []
-            --    , Html.text "Mastodon "
-            --    ])
             , newTabLink ( socialBox model )
                 { url = "https://twitch.tv/DNEAVES/"
                 , label = (
