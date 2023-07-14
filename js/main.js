@@ -11150,6 +11150,15 @@ var $mdgriffith$elm_ui$Element$column = F2(
 						attrs))),
 			$mdgriffith$elm_ui$Internal$Model$Unkeyed(children));
 	});
+var $mdgriffith$elm_ui$Element$Font$family = function (families) {
+	return A2(
+		$mdgriffith$elm_ui$Internal$Model$StyleClass,
+		$mdgriffith$elm_ui$Internal$Flag$fontFamily,
+		A2(
+			$mdgriffith$elm_ui$Internal$Model$FontFamily,
+			A3($elm$core$List$foldl, $mdgriffith$elm_ui$Internal$Model$renderFontClassName, 'ff-', families),
+			families));
+};
 var $mdgriffith$elm_ui$Element$htmlAttribute = $mdgriffith$elm_ui$Internal$Model$Attr;
 var $elm$html$Html$Attributes$alt = $elm$html$Html$Attributes$stringProperty('alt');
 var $elm$html$Html$Attributes$src = function (url) {
@@ -11202,6 +11211,8 @@ var $mdgriffith$elm_ui$Element$image = F2(
 						$mdgriffith$elm_ui$Internal$Model$Unkeyed(_List_Nil))
 					])));
 	});
+var $mdgriffith$elm_ui$Internal$Model$Monospace = {$: 'Monospace'};
+var $mdgriffith$elm_ui$Element$Font$monospace = $mdgriffith$elm_ui$Internal$Model$Monospace;
 var $elm$html$Html$Attributes$href = function (url) {
 	return A2(
 		$elm$html$Html$Attributes$stringProperty,
@@ -11268,6 +11279,12 @@ var $mdgriffith$elm_ui$Element$row = F2(
 						attrs))),
 			$mdgriffith$elm_ui$Internal$Model$Unkeyed(children));
 	});
+var $mdgriffith$elm_ui$Element$Font$size = function (i) {
+	return A2(
+		$mdgriffith$elm_ui$Internal$Model$StyleClass,
+		$mdgriffith$elm_ui$Internal$Flag$fontSize,
+		$mdgriffith$elm_ui$Internal$Model$FontSize(i));
+};
 var $mdgriffith$elm_ui$Element$Background$color = function (clr) {
 	return A2(
 		$mdgriffith$elm_ui$Internal$Model$StyleClass,
@@ -11288,28 +11305,10 @@ var $mdgriffith$elm_ui$Element$Font$color = function (fontColor) {
 			'color',
 			fontColor));
 };
-var $mdgriffith$elm_ui$Element$Font$family = function (families) {
-	return A2(
-		$mdgriffith$elm_ui$Internal$Model$StyleClass,
-		$mdgriffith$elm_ui$Internal$Flag$fontFamily,
-		A2(
-			$mdgriffith$elm_ui$Internal$Model$FontFamily,
-			A3($elm$core$List$foldl, $mdgriffith$elm_ui$Internal$Model$renderFontClassName, 'ff-', families),
-			families));
-};
-var $mdgriffith$elm_ui$Internal$Model$Monospace = {$: 'Monospace'};
-var $mdgriffith$elm_ui$Element$Font$monospace = $mdgriffith$elm_ui$Internal$Model$Monospace;
 var $mdgriffith$elm_ui$Element$rgb255 = F3(
 	function (red, green, blue) {
 		return A4($mdgriffith$elm_ui$Internal$Model$Rgba, red / 255, green / 255, blue / 255, 1);
 	});
-var $mdgriffith$elm_ui$Element$Font$size = function (i) {
-	return A2(
-		$mdgriffith$elm_ui$Internal$Model$StyleClass,
-		$mdgriffith$elm_ui$Internal$Flag$fontSize,
-		$mdgriffith$elm_ui$Internal$Model$FontSize(i));
-};
-var $mdgriffith$elm_ui$Element$Font$typeface = $mdgriffith$elm_ui$Internal$Model$Typeface;
 var $author$project$Main$socialBox = function (model) {
 	return _List_fromArray(
 		[
@@ -11317,18 +11316,6 @@ var $author$project$Main$socialBox = function (model) {
 			A3($mdgriffith$elm_ui$Element$rgb255, 18, 18, 18)),
 			$mdgriffith$elm_ui$Element$Font$color(
 			A3($mdgriffith$elm_ui$Element$rgb255, 255, 255, 255)),
-			$mdgriffith$elm_ui$Element$Font$size(28),
-			$mdgriffith$elm_ui$Element$Font$family(
-			_List_fromArray(
-				[
-					$mdgriffith$elm_ui$Element$Font$typeface('Consolas'),
-					$mdgriffith$elm_ui$Element$Font$typeface('Andale Mono'),
-					$mdgriffith$elm_ui$Element$Font$typeface('Lucida Console'),
-					$mdgriffith$elm_ui$Element$Font$typeface('Lucida Sans Typewriter'),
-					$mdgriffith$elm_ui$Element$Font$typeface('Monaco'),
-					$mdgriffith$elm_ui$Element$Font$typeface('Courier New'),
-					$mdgriffith$elm_ui$Element$Font$monospace
-				])),
 			$mdgriffith$elm_ui$Element$centerX
 		]);
 };
@@ -11351,19 +11338,32 @@ var $mdgriffith$elm_ui$Element$spacing = function (x) {
 			x,
 			x));
 };
-var $elm$virtual_dom$VirtualDom$style = _VirtualDom_style;
-var $elm$html$Html$Attributes$style = $elm$virtual_dom$VirtualDom$style;
 var $mdgriffith$elm_ui$Internal$Model$Text = function (a) {
 	return {$: 'Text', a: a};
 };
 var $mdgriffith$elm_ui$Element$text = function (content) {
 	return $mdgriffith$elm_ui$Internal$Model$Text(content);
 };
+var $mdgriffith$elm_ui$Element$Font$typeface = $mdgriffith$elm_ui$Internal$Model$Typeface;
 var $author$project$Main$view_ = function (model) {
 	return A2(
 		$mdgriffith$elm_ui$Element$column,
 		_List_fromArray(
-			[$mdgriffith$elm_ui$Element$centerX]),
+			[
+				$mdgriffith$elm_ui$Element$centerX,
+				$mdgriffith$elm_ui$Element$Font$size(28),
+				$mdgriffith$elm_ui$Element$Font$family(
+				_List_fromArray(
+					[
+						$mdgriffith$elm_ui$Element$Font$typeface('Consolas'),
+						$mdgriffith$elm_ui$Element$Font$typeface('Andale Mono'),
+						$mdgriffith$elm_ui$Element$Font$typeface('Lucida Console'),
+						$mdgriffith$elm_ui$Element$Font$typeface('Lucida Sans Typewriter'),
+						$mdgriffith$elm_ui$Element$Font$typeface('Monaco'),
+						$mdgriffith$elm_ui$Element$Font$typeface('Courier New'),
+						$mdgriffith$elm_ui$Element$Font$monospace
+					]))
+			]),
 		_List_fromArray(
 			[
 				A2(
@@ -11444,7 +11444,7 @@ var $author$project$Main$view_ = function (model) {
 							_List_fromArray(
 								[
 									$mdgriffith$elm_ui$Element$htmlAttribute(
-									A2($elm$html$Html$Attributes$style, 'rel', 'me'))
+									$elm$html$Html$Attributes$rel('me'))
 								])),
 						{
 							label: A2(

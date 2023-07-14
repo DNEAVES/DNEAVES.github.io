@@ -2,9 +2,10 @@ module Main exposing (..)
 
 import Browser
 import Browser.Dom exposing (Viewport)
-import Element exposing (Attribute, Element, alignLeft, centerX, column, el, height, htmlAttribute, image, link, newTabLink, padding, px, rgb, rgb255, row, spacing, text, width)
+import Element exposing (Attribute, Element, alignLeft, centerX, column, el, height, html, htmlAttribute, image, link, newTabLink, padding, px, rgb, rgb255, row, spacing, text, width)
 import Element.Background as Bg
 import Element.Font as Font
+import Html
 import Html.Attributes exposing (style)
 import Json.Encode as Encode exposing (Value)
 import Task
@@ -81,16 +82,6 @@ socialBox : Model -> List (Attribute Msg)
 socialBox model =
     [ Bg.color (rgb255 18 18 18)
     , Font.color (rgb255 255 255 255)
-    , Font.size 28
-    , Font.family
-        [ Font.typeface "Consolas"
-        , Font.typeface "Andale Mono"
-        , Font.typeface "Lucida Console"
-        , Font.typeface "Lucida Sans Typewriter"
-        , Font.typeface "Monaco"
-        , Font.typeface "Courier New"
-        , Font.monospace
-        ]
     , centerX
     ]
 
@@ -100,7 +91,19 @@ socialBox model =
 
 view_ : Model -> Element Msg
 view_ model =
-     column [ centerX ]
+     column
+        [ centerX
+        , Font.size 28
+        , Font.family
+            [ Font.typeface "Consolas"
+            , Font.typeface "Andale Mono"
+            , Font.typeface "Lucida Console"
+            , Font.typeface "Lucida Sans Typewriter"
+            , Font.typeface "Monaco"
+            , Font.typeface "Courier New"
+            , Font.monospace
+            ]
+        ]
         [ image 
             [ width (px 240)
             , height (px 240)
@@ -140,7 +143,7 @@ view_ model =
                         ]
                     )
                 }
-            , newTabLink ( socialBox model ++ [ htmlAttribute (style "rel" "me") ])
+            , newTabLink ( socialBox model ++ [ htmlAttribute (Html.Attributes.rel "me") ])
                 { url = "https://fosstodon.org/@dneaves"
                 , label = (
                     row
@@ -155,6 +158,19 @@ view_ model =
                         ]
                     )
                 }
+            --, html (Html.a
+            --    [ Html.Attributes.href "https://fosstodon.org/@dneaves"
+            --    , Html.Attributes.rel "me"
+            --    , Html.Attributes.align "middle"
+            --    ]
+            --    [ Html.img
+            --        [ Html.Attributes.height 48
+            --        , Html.Attributes.width 48
+            --        , Html.Attributes.src "Images/MastSolo.png"
+            --        ]
+            --        []
+            --    , Html.text "Mastodon "
+            --    ])
             , newTabLink ( socialBox model )
                 { url = "https://twitch.tv/DNEAVES/"
                 , label = (
