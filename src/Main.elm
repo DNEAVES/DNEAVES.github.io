@@ -40,12 +40,13 @@ type alias Flags =
 init : Encode.Value -> ( Model, Cmd Msg )
 init _ =
     ( { viewType = Desktop }
-    --, Task.perform (\vp -> GotViewport vp) Browser.Dom.getViewport
+      --, Task.perform (\vp -> GotViewport vp) Browser.Dom.getViewport
     , Cmd.none
     )
 
--- classes
 
+
+-- classes
 --socialIcon : Attribute Msg
 --socialIcon =
 --    css [ minHeight (px 48)
@@ -78,6 +79,7 @@ init _ =
 --            )
 --        )
 
+
 socialBox : Model -> List (Attribute Msg)
 socialBox model =
     [ Bg.color (rgb255 18 18 18)
@@ -86,12 +88,13 @@ socialBox model =
     ]
 
 
+
 -- view
 
 
 view_ : Model -> Element Msg
 view_ model =
-     column
+    column
         [ centerX
         , Font.size 28
         , Font.family
@@ -104,7 +107,7 @@ view_ model =
             , Font.monospace
             ]
         ]
-        [ image 
+        [ image
             [ width (px 240)
             , height (px 240)
             , centerX
@@ -113,111 +116,127 @@ view_ model =
             , description = ""
             }
         , column [ spacing 15 ]
-            [ newTabLink ( socialBox model )
+            [ newTabLink (socialBox model)
                 { url = "https://dneaves-blog.lamdera.app/"
-                , label = (
+                , label =
                     row
                         [ spacing 15 ]
-                        [ image [ width (px 48)
-                                , height (px 48)
-                                ]
+                        [ image
+                            [ width (px 48)
+                            , height (px 48)
+                            ]
                             { src = "Images/Lamdera.png"
                             , description = ""
                             }
                         , text "Blog "
                         ]
-                    )
                 }
-            , newTabLink ( socialBox model )
-                { url = "https://twitter.com/DNEAVES/"
-                , label = (
+            , newTabLink (socialBox model)
+                { url = "https://codeberg.org/dneaves"
+                , label =
                     row
                         [ spacing 15 ]
-                        [ image [ width (px 48)
-                                , height (px 48)
-                                ]
-                            { src = "Images/TwitSolo.png"
+                        [ image
+                            [ width (px 48)
+                            , height (px 48)
+                            ]
+                            { src = "Images/CodebergSolo.png"
                             , description = ""
                             }
-                        , text "Twitter "
+                        , text "Codeberg "
                         ]
-                    )
                 }
-            , newTabLink ( socialBox model )
+            , newTabLink (socialBox model)
                 { url = "https://fosstodon.org/@dneaves"
-                , label = (
+                , label =
                     row
                         [ spacing 15 ]
-                        [ image [ width (px 48)
-                                , height (px 48)
-                                ]
+                        [ image
+                            [ width (px 48)
+                            , height (px 48)
+                            ]
                             { src = "Images/MastSolo.png"
                             , description = ""
                             }
                         , text "Mastodon "
                         ]
-                    )
                 }
-            , newTabLink ( socialBox model )
-                { url = "https://twitch.tv/DNEAVES/"
-                , label = (
+            , newTabLink (socialBox model)
+                { url = "https://twitter.com/DNEAVES/"
+                , label =
                     row
                         [ spacing 15 ]
-                        [ image [ width (px 48)
-                                , height (px 48)
-                                ]
+                        [ image
+                            [ width (px 48)
+                            , height (px 48)
+                            ]
+                            { src = "Images/TwitSolo.png"
+                            , description = ""
+                            }
+                        , text "Twitter "
+                        ]
+                }
+            , newTabLink (socialBox model)
+                { url = "https://twitch.tv/DNEAVES/"
+                , label =
+                    row
+                        [ spacing 15 ]
+                        [ image
+                            [ width (px 48)
+                            , height (px 48)
+                            ]
                             { src = "Images/TwitchSolo.png"
                             , description = ""
                             }
                         , text "Twitch "
                         ]
-                    )
                 }
-            , newTabLink ( socialBox model )
+            , newTabLink (socialBox model)
                 { url = "https://kick.com/DNEAVES/"
-                , label = (
+                , label =
                     row
                         [ spacing 15 ]
-                        [ image [ width (px 48)
-                                , height (px 48)
-                                ]
+                        [ image
+                            [ width (px 48)
+                            , height (px 48)
+                            ]
                             { src = "Images/Kick.png"
                             , description = ""
                             }
                         , text "Kick "
                         ]
-                    )
                 }
-            , newTabLink ( socialBox model )
+            , newTabLink (socialBox model)
                 { url = "https://youtube.com/@dneavesgaming"
-                , label = (
+                , label =
                     row
                         [ spacing 15 ]
-                        [ image [ width (px 48)
-                                , height (px 48)
-                                ]
+                        [ image
+                            [ width (px 48)
+                            , height (px 48)
+                            ]
                             { src = "Images/YTGSolo.png"
                             , description = ""
                             }
                         , text "Youtube (Gaming) "
                         ]
-                    )
                 }
-            , newTabLink ( socialBox model )
+            , newTabLink (socialBox model)
                 { url = "https://youtube.com/@dneavesmusic"
-                , label = (
+                , label =
                     row
                         [ spacing 15 ]
-                        [ image [ width (px 48)
-                                , height (px 48)
-                                ]
+                        [ image
+                            [ width (px 48)
+                            , height (px 48)
+                            ]
                             { src = "Images/YTMSolo.png"
                             , description = ""
                             }
                         , text "Youtube (Music) "
                         ]
-                    )
                 }
+
             --, newTabLink ( socialBox model )
             --    { url = "https://hivesocial.app"
             --    , label = (
@@ -233,38 +252,39 @@ view_ model =
             --            ]
             --        )
             --    }
-            , newTabLink ( socialBox model )
-                { url = "https://instagram.com/DNEAVES/"
-                , label = (
-                    row
-                        [ spacing 15 ]
-                        [ image [ width (px 48)
-                                , height (px 48)
-                                ]
-                            { src = "Images/InstaSolo.png"
-                            , description = ""
-                            }
-                        , text "Instagram "
-                        ]
-                    )
-                }
-            , newTabLink ( socialBox model )
-                { url = "https://soundcloud.com/DNEAVES"
-                , label = (
-                    row
-                        [ spacing 15 ]
-                        [ image [ width (px 48)
-                                , height (px 48)
-                                ]
-                            { src = "Images/SoundcloudSolo.png"
-                            , description = ""
-                            }
-                        , text "Soundcloud "
-                        ]
-                    )
-                }
+            -- , newTabLink (socialBox model)
+            --     { url = "https://instagram.com/DNEAVES/"
+            --     , label =
+            --         row
+            --             [ spacing 15 ]
+            --             [ image
+            --                 [ width (px 48)
+            --                 , height (px 48)
+            --                 ]
+            --                 { src = "Images/InstaSolo.png"
+            --                 , description = ""
+            --                 }
+            --             , text "Instagram "
+            --             ]
+            --     }
+            -- , newTabLink (socialBox model)
+            --     { url = "https://soundcloud.com/DNEAVES"
+            --     , label =
+            --         row
+            --             [ spacing 15 ]
+            --             [ image
+            --                 [ width (px 48)
+            --                 , height (px 48)
+            --                 ]
+            --                 { src = "Images/SoundcloudSolo.png"
+            --                 , description = ""
+            --                 }
+            --             , text "Soundcloud "
+            --             ]
+            --     }
             ]
         ]
+
 
 
 --view_ : Model -> List (Html Msg)
@@ -409,14 +429,13 @@ view model =
     , body = [ Element.layout [] (view_ model) ]
     }
 
+
+
 --view : Model -> Browser.Document Msg
 --view model =
 --    { title = "DNEAVES' Links"
 --    , body = List.map toUnstyled (view_ model)
 --    }
-
-
-
 --main
 
 
@@ -446,13 +465,13 @@ update msg model =
                 screenType =
                     if viewport.viewport.width > viewport.viewport.height then
                         Desktop
+
                     else
                         Mobile
             in
             ( { model | viewType = screenType }
             , Cmd.none
             )
-
 
 
 

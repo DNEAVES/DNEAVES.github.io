@@ -11431,10 +11431,10 @@ var $author$project$Main$view_ = function (model) {
 												$mdgriffith$elm_ui$Element$height(
 												$mdgriffith$elm_ui$Element$px(48))
 											]),
-										{description: '', src: 'Images/TwitSolo.png'}),
-										$mdgriffith$elm_ui$Element$text('Twitter ')
+										{description: '', src: 'Images/CodebergSolo.png'}),
+										$mdgriffith$elm_ui$Element$text('Codeberg ')
 									])),
-							url: 'https://twitter.com/DNEAVES/'
+							url: 'https://codeberg.org/dneaves'
 						}),
 						A2(
 						$mdgriffith$elm_ui$Element$newTabLink,
@@ -11461,6 +11461,32 @@ var $author$project$Main$view_ = function (model) {
 										$mdgriffith$elm_ui$Element$text('Mastodon ')
 									])),
 							url: 'https://fosstodon.org/@dneaves'
+						}),
+						A2(
+						$mdgriffith$elm_ui$Element$newTabLink,
+						$author$project$Main$socialBox(model),
+						{
+							label: A2(
+								$mdgriffith$elm_ui$Element$row,
+								_List_fromArray(
+									[
+										$mdgriffith$elm_ui$Element$spacing(15)
+									]),
+								_List_fromArray(
+									[
+										A2(
+										$mdgriffith$elm_ui$Element$image,
+										_List_fromArray(
+											[
+												$mdgriffith$elm_ui$Element$width(
+												$mdgriffith$elm_ui$Element$px(48)),
+												$mdgriffith$elm_ui$Element$height(
+												$mdgriffith$elm_ui$Element$px(48))
+											]),
+										{description: '', src: 'Images/TwitSolo.png'}),
+										$mdgriffith$elm_ui$Element$text('Twitter ')
+									])),
+							url: 'https://twitter.com/DNEAVES/'
 						}),
 						A2(
 						$mdgriffith$elm_ui$Element$newTabLink,
@@ -11565,58 +11591,6 @@ var $author$project$Main$view_ = function (model) {
 										$mdgriffith$elm_ui$Element$text('Youtube (Music) ')
 									])),
 							url: 'https://youtube.com/@dneavesmusic'
-						}),
-						A2(
-						$mdgriffith$elm_ui$Element$newTabLink,
-						$author$project$Main$socialBox(model),
-						{
-							label: A2(
-								$mdgriffith$elm_ui$Element$row,
-								_List_fromArray(
-									[
-										$mdgriffith$elm_ui$Element$spacing(15)
-									]),
-								_List_fromArray(
-									[
-										A2(
-										$mdgriffith$elm_ui$Element$image,
-										_List_fromArray(
-											[
-												$mdgriffith$elm_ui$Element$width(
-												$mdgriffith$elm_ui$Element$px(48)),
-												$mdgriffith$elm_ui$Element$height(
-												$mdgriffith$elm_ui$Element$px(48))
-											]),
-										{description: '', src: 'Images/InstaSolo.png'}),
-										$mdgriffith$elm_ui$Element$text('Instagram ')
-									])),
-							url: 'https://instagram.com/DNEAVES/'
-						}),
-						A2(
-						$mdgriffith$elm_ui$Element$newTabLink,
-						$author$project$Main$socialBox(model),
-						{
-							label: A2(
-								$mdgriffith$elm_ui$Element$row,
-								_List_fromArray(
-									[
-										$mdgriffith$elm_ui$Element$spacing(15)
-									]),
-								_List_fromArray(
-									[
-										A2(
-										$mdgriffith$elm_ui$Element$image,
-										_List_fromArray(
-											[
-												$mdgriffith$elm_ui$Element$width(
-												$mdgriffith$elm_ui$Element$px(48)),
-												$mdgriffith$elm_ui$Element$height(
-												$mdgriffith$elm_ui$Element$px(48))
-											]),
-										{description: '', src: 'Images/SoundcloudSolo.png'}),
-										$mdgriffith$elm_ui$Element$text('Soundcloud ')
-									])),
-							url: 'https://soundcloud.com/DNEAVES'
 						})
 					]))
 			]));
